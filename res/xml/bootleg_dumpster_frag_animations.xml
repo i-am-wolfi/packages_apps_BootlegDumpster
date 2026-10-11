@@ -35,7 +35,7 @@
         android:key="footer_anim_transparent_theme"
         android:title="@string/animations_transparent_alert"
         android:selectable="false"
-        settings:searchable="false"/>
+       />
 
        <Preference
         android:key="pulse_settings"

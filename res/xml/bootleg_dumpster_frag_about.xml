@@ -93,6 +93,6 @@
         android:key="footer_alert_testbuild"
         android:title="@string/bootleg_ab_madstinky_test"
         android:selectable="false"
-        settings:searchable="false"/>
+       />
 
 </PreferenceScreen>

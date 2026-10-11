@@ -81,6 +81,6 @@
         android:key="footer_thanking_user"
         android:title="@string/bootleg_pref_moarstuff_wewsecret"
         android:selectable="false"
-        settings:searchable="false"/>
+       />
 
 </PreferenceScreen>

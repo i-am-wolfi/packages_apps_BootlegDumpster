@@ -88,15 +88,15 @@
             android:key="ambient_notification_light_duration"
             android:title="@string/pulse_ambient_light_duration_title"
             android:max="5"
-            settings:min="1"
-            settings:defaultValue="2" />
+           
+            />
 
         <com.bootleggers.support.preferences.CustomSeekBarPreference
             android:key="ambient_notification_light_repeats"
             android:title="@string/pulse_ambient_light_repeat_count_title"
             android:max="10"
-            settings:min="0"
-            settings:defaultValue="0" />
+           
+            />
 
         <com.bootleggers.support.preferences.SystemSettingListPreference
             android:key="ambient_light_repeat_direction"
@@ -210,8 +210,8 @@
             android:summary="@string/flashlight_on_call_rate_summary"
             android:max="5"
             android:min="1"
-            settings:defaultValue="1"
-            settings:units="Hz" />
+           
+            app:units="Hz" />
 
     </PreferenceCategory>
 
