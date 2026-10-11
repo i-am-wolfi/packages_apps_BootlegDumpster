@@ -16,8 +16,8 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
@@ -25,7 +25,7 @@ import android.view.View;
 import java.util.List;
 import java.util.ArrayList;
 
-public class QuickSettings extends SettingsPreferenceFragment implements
+public class QuickSettings extends PreferenceFragmentCompat implements
         OnPreferenceChangeListener {
 
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";

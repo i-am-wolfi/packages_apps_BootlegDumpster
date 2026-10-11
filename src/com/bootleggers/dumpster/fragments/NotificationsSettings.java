@@ -20,10 +20,10 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 import com.bootleggers.support.preferences.SystemSettingMasterSwitchPreference;
 import com.bootleggers.support.preferences.SystemSettingSeekBarPreference;
 import com.bootleggers.support.preferences.CustomSeekBarPreference;
@@ -33,7 +33,7 @@ import com.bootleggers.support.colorpicker.ColorPickerPreference;
 import com.android.internal.util.bootleg.BootlegUtils;
 import java.util.List;
 
-public class NotificationsSettings extends SettingsPreferenceFragment 
+public class NotificationsSettings extends PreferenceFragmentCompat 
         implements Preference.OnPreferenceChangeListener{
 
     private static final String AMBIENT_LIGHT_COLOR = "ambient_notification_color_mode";

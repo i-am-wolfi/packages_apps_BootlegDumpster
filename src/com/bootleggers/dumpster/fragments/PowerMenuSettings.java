@@ -30,18 +30,18 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 import androidx.annotation.NonNull;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class PowerMenuSettings extends SettingsPreferenceFragment
+public class PowerMenuSettings extends PreferenceFragmentCompat
         implements OnPreferenceChangeListener {
 
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";

@@ -28,15 +28,15 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.view.Surface;
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import com.bootleggers.dumpster.extra.Utils;
 
-public class MainDump extends SettingsPreferenceFragment {
+public class MainDump extends PreferenceFragmentCompat {
 
     @Override
     public void onCreate(Bundle icicle) {

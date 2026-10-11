@@ -31,15 +31,15 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class VolumeSteps extends SettingsPreferenceFragment implements
+public class VolumeSteps extends PreferenceFragmentCompat implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "VolumeSteps";

@@ -37,9 +37,9 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.settingslib.widget.FooterPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -48,7 +48,7 @@ import android.os.SystemProperties;
 
 import java.util.Random;
 
-public class AboutBootleggers extends SettingsPreferenceFragment implements
+public class AboutBootleggers extends PreferenceFragmentCompat implements
         Preference.OnPreferenceChangeListener{
     
     private static final String BTLG_ROM_SHARE = "bootleg_sharemsg";

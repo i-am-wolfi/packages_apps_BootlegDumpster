@@ -36,10 +36,8 @@ import android.util.Log;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.bootleggers.dumpster.extra.Utils;
 
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.SearchFeatureProviderImpl;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
@@ -47,7 +45,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 @SearchIndexable
-public class OmniJawsSettings extends SettingsPreferenceFragment implements
+public class OmniJawsSettings extends PreferenceFragmentCompat implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "OmniJawsSettings";
     private static final String CATEGORY_WEATHER = "weather_category";

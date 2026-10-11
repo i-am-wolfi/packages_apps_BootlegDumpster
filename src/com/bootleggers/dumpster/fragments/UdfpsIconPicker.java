@@ -52,9 +52,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.settingslib.search.Indexable;
 
 import java.util.ArrayList;
@@ -64,7 +63,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UdfpsIconPicker extends SettingsPreferenceFragment {
+public class UdfpsIconPicker extends PreferenceFragmentCompat {
 
     private RecyclerView mRecyclerView;
 

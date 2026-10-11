@@ -16,13 +16,13 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-public class AnimationsSettings extends SettingsPreferenceFragment
+public class AnimationsSettings extends PreferenceFragmentCompat
         implements OnPreferenceChangeListener {
 
     @Override

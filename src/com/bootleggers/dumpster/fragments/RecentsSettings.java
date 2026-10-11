@@ -14,14 +14,14 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 
-public class RecentsSettings extends SettingsPreferenceFragment implements
+public class RecentsSettings extends PreferenceFragmentCompat implements
         OnPreferenceChangeListener {
 
     @Override

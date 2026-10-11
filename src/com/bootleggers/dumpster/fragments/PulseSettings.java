@@ -32,12 +32,12 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.bootleggers.support.colorpicker.ColorPickerPreference;
 
-public class PulseSettings extends SettingsPreferenceFragment implements
+public class PulseSettings extends PreferenceFragmentCompat implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = PulseSettings.class.getSimpleName();

@@ -15,6 +15,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/system_title">
 
@@ -27,35 +28,35 @@
             android:key="android.theme.customization.icon_pack"
             android:title="@string/theme_customization_icon_pack_title"
             android:summary="@string/theme_customization_icon_pack_summary"
-            android:fragment="com.bootleggers.dumpster.external.themebox.StatusBarIcons"/>
+            app:fragment="com.bootleggers.dumpster.external.themebox.StatusBarIcons"/>
 
         <!-- Adaptive icon pack -->
         <Preference
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/theme_customization_icon_shape_title"
             android:summary="@string/theme_customization_icon_shape_summary"
-            android:fragment="com.bootleggers.dumpster.external.themebox.IconShapes"/>
+            app:fragment="com.bootleggers.dumpster.external.themebox.IconShapes"/>
 
         <!-- UI Style -->
         <Preference
             android:key="android.theme.customization.style"
             android:title="@string/theme_customization_ui_style_title"
             android:summary="@string/theme_customization_ui_style_summary"
-            android:fragment="com.bootleggers.dumpster.external.themebox.UIStyles"/>
+            app:fragment="com.bootleggers.dumpster.external.themebox.UIStyles"/>
 
         <!-- Font style -->
         <Preference
             android:key="android.theme.customization.fonts"
             android:title="@string/theme_customization_font_title"
             android:summary="@string/theme_customization_font_summary"
-            android:fragment="com.bootleggers.dumpster.external.themebox.FontsPicker"/>
+            app:fragment="com.bootleggers.dumpster.external.themebox.FontsPicker"/>
 
         <!-- Navbar Style -->
         <Preference
             android:key="android.theme.customization.navbar"
             android:title="@string/theme_customization_navbar_title"
             android:summary="@string/theme_customization_navbar_summary"
-            android:fragment="com.bootleggers.dumpster.external.themebox.NavbarStyles"/>
+            app:fragment="com.bootleggers.dumpster.external.themebox.NavbarStyles"/>
 
    </PreferenceCategory>
 
@@ -68,7 +69,7 @@
             android:key="smart_pixels"
             android:title="@string/smart_pixels_title" 
             android:summary="@string/smart_pixels_summary" 
-            android:fragment="com.bootleggers.dumpster.fragments.SmartPixels" />
+            app:fragment="com.bootleggers.dumpster.fragments.SmartPixels" />
 
             <com.bootleggers.support.preferences.SecureSettingSwitchPreference
             android:key="window_ignore_secure"

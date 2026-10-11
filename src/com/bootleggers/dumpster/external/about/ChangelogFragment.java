@@ -36,7 +36,7 @@ import android.widget.TextView;
 
 import androidx.preference.PreferenceFragment;
 
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
 import java.io.FileReader;
 import java.io.IOException;

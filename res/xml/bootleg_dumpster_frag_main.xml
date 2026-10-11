@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/bootleg_dumpster_title" >
 
@@ -26,28 +27,28 @@
             android:icon="@drawable/ic_subcategory_status_bar"
             android:title="@string/statusbar_title"
             android:summary="@string/statusbar_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.StatusBarSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.StatusBarSettings" />
 
         <Preference
             android:key="quick_settings_category"
             android:icon="@drawable/ic_subcategory_quick_settings"
             android:title="@string/quicksettings_title"
             android:summary="@string/quicksettings_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.QuickSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.QuickSettings" />
 
         <Preference
             android:key="notifications_category"
             android:icon="@drawable/ic_subcategory_notifications"
             android:title="@string/notifications_title"
             android:summary="@string/notifications_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.NotificationsSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.NotificationsSettings" />
 
         <Preference
             android:key="lockscreen_category"
             android:icon="@drawable/ic_subcategory_lockscreen"
             android:title="@string/lockscreen_title"
             android:summary="@string/lockscreen_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.LockScreenSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.LockScreenSettings" />
 
     </PreferenceCategory>
 
@@ -60,21 +61,21 @@
             android:icon="@drawable/ic_subcategory_recents"
             android:title="@string/recents_title"
             android:summary="@string/recents_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.RecentsSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.RecentsSettings" />
 
         <Preference
             android:key="animations_category"
             android:icon="@drawable/ic_subcategory_animations"
             android:title="@string/animations_title"
             android:summary="@string/animations_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.AnimationsSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.AnimationsSettings" />
 
         <Preference
             android:key="gestures_category"
             android:icon="@drawable/ic_subcategory_gestures"
             android:title="@string/gestures_title"
             android:summary="@string/gestures_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.GesturesSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.GesturesSettings" />
 
     </PreferenceCategory>
 
@@ -87,28 +88,28 @@
             android:icon="@drawable/ic_subcategory_power_menu"
             android:title="@string/powermenu_title"
             android:summary="@string/powermenu_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.PowerMenuSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.PowerMenuSettings" />
 
         <Preference
             android:key="navbar_category"
             android:icon="@drawable/ic_subcategory_navbar"
             android:title="@string/navbar_title"
             android:summary="@string/navbar_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.NavBarSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.NavBarSettings" />
 
         <Preference
             android:key="hwkeys_category"
             android:icon="@drawable/ic_subcategory_hwkeys"
             android:title="@string/hwkeys_title"
             android:summary="@string/hwkeys_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.HwKeysSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.HwKeysSettings" />
 
         <Preference
             android:key="fingerprint_category"
             android:icon="@drawable/ic_subcategory_fingerprint"
             android:title="@string/fingerprint_title"
             android:summary="@string/fingerprint_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.FingerprintSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.FingerprintSettings" />
 
     </PreferenceCategory>
 
@@ -127,21 +128,21 @@
             android:icon="@drawable/ic_subcategory_app_related"
             android:title="@string/app_related_title"
             android:summary="@string/app_related_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.AppSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.AppSettings" />
 
         <Preference
             android:key="system_category"
             android:icon="@drawable/ic_subcategory_system"
             android:title="@string/system_title"
             android:summary="@string/system_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.SystemSettings" />
+            app:fragment="com.bootleggers.dumpster.fragments.SystemSettings" />
 
         <Preference
             android:key="about_bootleggers_category"
             android:icon="@drawable/ic_settings_bootlegdump"
             android:title="@string/about_bootleg_title"
             android:summary="@string/about_bootleg_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.AboutBootleggers" />
+            app:fragment="com.bootleggers.dumpster.fragments.AboutBootleggers" />
 
     </PreferenceCategory>
 

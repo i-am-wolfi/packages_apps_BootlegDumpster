@@ -45,9 +45,8 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.bootleggers.support.preferences.PackageListAdapter;
 import com.bootleggers.support.preferences.PackageListAdapter.PackageItem;
@@ -57,7 +56,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SensorBlockSettings extends SettingsPreferenceFragment
+public class SensorBlockSettings extends PreferenceFragmentCompat
         implements Preference.OnPreferenceClickListener {
 
     private static final int DIALOG_BLOCKED_APPS = 1;

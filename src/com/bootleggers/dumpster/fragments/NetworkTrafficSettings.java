@@ -39,9 +39,8 @@ import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 
 import java.util.Locale;
 import java.util.List;
@@ -53,7 +52,7 @@ import java.util.Collections;
 import com.bootleggers.support.preferences.SystemSettingSwitchPreference;
 import com.bootleggers.support.preferences.SystemSettingMainSwitchPreference;
 
-public class NetworkTrafficSettings extends SettingsPreferenceFragment implements
+public class NetworkTrafficSettings extends PreferenceFragmentCompat implements
         OnPreferenceChangeListener {
 
     private SystemSettingSwitchPreference mThreshold;

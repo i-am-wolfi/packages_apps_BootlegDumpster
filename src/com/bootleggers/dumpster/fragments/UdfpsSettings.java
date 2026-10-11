@@ -40,10 +40,10 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.bootleg.BootlegUtils;
 
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 
-public class UdfpsSettings extends SettingsPreferenceFragment {
+public class UdfpsSettings extends PreferenceFragmentCompat {
 
     private static final String UDFPS_ANIM_PREVIEW = "udfps_recognizing_animation_preview";
 

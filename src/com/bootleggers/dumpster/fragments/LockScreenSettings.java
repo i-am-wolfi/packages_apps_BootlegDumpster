@@ -38,15 +38,15 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import android.provider.Settings;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.internal.util.bootleg.udfps.UdfpsUtils;
 
 import com.bootleggers.support.preferences.SystemSettingListPreference;
 
 import java.lang.StringBuilder;
 
-public class LockScreenSettings extends SettingsPreferenceFragment implements
+public class LockScreenSettings extends PreferenceFragmentCompat implements
         OnPreferenceChangeListener {
 
         private static final String UDFPS_CATEGORY = "udfps_category";

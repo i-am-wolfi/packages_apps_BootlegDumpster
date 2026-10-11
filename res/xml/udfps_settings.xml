@@ -17,6 +17,7 @@
 
 <PreferenceScreen 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/udfps_settings_title" >
 
@@ -24,12 +25,12 @@
         android:key="udfps_icon_picker"
         android:title="@string/udfps_icon_picker_title"
         android:summary="@string/udfps_icon_picker_summary"
-        android:fragment="com.bootleggers.dumpster.fragments.UdfpsIconPicker" />
+        app:fragment="com.bootleggers.dumpster.fragments.UdfpsIconPicker" />
 
     <Preference
         android:key="udfps_recognizing_animation_preview"
         android:title="@string/udfps_recog_animation_effect_title"
         android:summary="@string/udfps_recog_animation_effect_summary"
-        android:fragment="com.bootleggers.dumpster.fragments.UdfpsAnimation" />
+        app:fragment="com.bootleggers.dumpster.fragments.UdfpsAnimation" />
 
 </PreferenceScreen>

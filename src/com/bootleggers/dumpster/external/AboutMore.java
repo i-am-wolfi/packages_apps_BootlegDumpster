@@ -17,13 +17,13 @@ import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-public class AboutMore extends SettingsPreferenceFragment {
+public class AboutMore extends PreferenceFragmentCompat {
 
     private Preference prefCrowd;
     private String bootlegCrowdinString;

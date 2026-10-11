@@ -50,10 +50,9 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.R;
-import com.android.settings.search.BaseSearchIndexProvider;
+import com.bootleggers.dumpster.R;
 import com.android.settingslib.search.Indexable;
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.internal.util.bootleg.ThemeUtils;
 
@@ -64,7 +63,7 @@ import java.util.Arrays;
 import org.json.JSONObject;
 import org.json.JSONException;
 
-public class LockClockFonts extends SettingsPreferenceFragment {
+public class LockClockFonts extends PreferenceFragmentCompat {
 
     private RecyclerView mRecyclerView;
     private ThemeUtils mThemeUtils;

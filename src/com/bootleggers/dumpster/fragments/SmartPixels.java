@@ -35,11 +35,9 @@ import androidx.preference.ListPreference;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.Utils;
-import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
@@ -47,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SearchIndexable
-public class SmartPixels extends SettingsPreferenceFragment implements Indexable {
+public class SmartPixels extends PreferenceFragmentCompat implements Indexable {
     private static final String TAG = "SmartPixels";
     private static final String SMART_PIXELS_ENABLE = "smart_pixels_enable";
     private static final String SMART_PIXELS_ON_POWER_SAVE = "smart_pixels_on_power_save";

@@ -15,6 +15,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/app_related_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
@@ -34,7 +35,7 @@
         android:icon="@drawable/ic_settings_sound"
         android:title="@string/volume_steps_title"
         android:summary="@string/volume_steps_summary"
-        android:fragment="com.bootleggers.dumpster.fragments.VolumeSteps" />
+        app:fragment="com.bootleggers.dumpster.fragments.VolumeSteps" />
 
    </PreferenceCategory>
 
@@ -46,7 +47,7 @@
             android:key="sensor_block_settings"
             android:title="@string/sensor_block_title"
             android:summary="@string/sensor_block_summary"
-            android:fragment="com.bootleggers.dumpster.fragments.SensorBlockSettings"/>
+            app:fragment="com.bootleggers.dumpster.fragments.SensorBlockSettings"/>
 
    </PreferenceCategory>
 

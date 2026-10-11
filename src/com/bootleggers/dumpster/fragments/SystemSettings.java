@@ -34,12 +34,12 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
-public class SystemSettings extends SettingsPreferenceFragment 
+public class SystemSettings extends PreferenceFragmentCompat 
         implements OnPreferenceChangeListener {
 
     // private static final String TAG = "System";

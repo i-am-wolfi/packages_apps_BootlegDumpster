@@ -19,13 +19,13 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 
 import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.android.settings.SettingsPreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import com.bootleggers.dumpster.extra.Utils;
 import android.util.Log;
 
@@ -35,7 +35,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-public class StatusBarSettings extends SettingsPreferenceFragment implements
+public class StatusBarSettings extends PreferenceFragmentCompat implements
         OnPreferenceChangeListener {
 
     // Categories

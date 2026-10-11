@@ -45,11 +45,9 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
+import com.bootleggers.dumpster.R;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.settingslib.search.SearchIndexable;
-import com.android.settings.Utils;
 
 import com.bootleggers.support.preferences.SystemSettingSwitchPreference;
 
@@ -58,7 +56,7 @@ import java.util.Date;
 import java.util.List;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class StatusbarClockDateSettings extends SettingsPreferenceFragment
+public class StatusbarClockDateSettings extends PreferenceFragmentCompat
 	implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_CLOCK = "status_bar_clock";

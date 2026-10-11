@@ -53,10 +53,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.R;
+import com.bootleggers.dumpster.R;
 import com.android.settings.SettingsActivity;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
+import androidx.preference.PreferenceFragmentCompat;
 import com.android.settings.widget.SettingsMainSwitchBar;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.widget.OnMainSwitchChangeListener;
@@ -68,7 +67,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UdfpsAnimation extends SettingsPreferenceFragment implements
+public class UdfpsAnimation extends PreferenceFragmentCompat implements
         OnMainSwitchChangeListener {
 
     private Switch mSwitch;

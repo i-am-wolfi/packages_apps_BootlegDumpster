@@ -15,6 +15,7 @@
 -->
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
         android:title="@string/about_bootleg_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
@@ -26,7 +27,7 @@
             android:key="bootleg_whoami"
             android:title="@string/bootleg_ab_title_whoami"
             android:summary="@string/bootleg_ab_summary_whoami"
-            android:fragment="com.bootleggers.dumpster.external.AboutMore">
+            app:fragment="com.bootleggers.dumpster.external.AboutMore">
         </Preference>
 
         <Preference
