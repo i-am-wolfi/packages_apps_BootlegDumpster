@@ -39,13 +39,13 @@ public class ThemeHelper {
     private final Context mContext;
     private final OverlayManager mOm;
     private final PackageManager mPm;
-    private final int mUserId;
+    private final UserHandle mUser;
 
     public ThemeHelper(Context context) {
         mContext = context;
         mOm = context.getSystemService(OverlayManager.class);
         mPm = context.getPackageManager();
-        mUserId = UserHandle.myUserId();
+        mUser = UserHandle.of(UserHandle.myUserId());
     }
 
     /** All overlay packages registered for category/target, "android" first. */
@@ -54,7 +54,7 @@ public class ThemeHelper {
         pkgs.add(PKG_DEFAULT);
         if (mOm == null) return pkgs;
         try {
-            for (OverlayInfo info : mOm.getOverlayInfosForTarget(target, mUserId)) {
+            for (OverlayInfo info : mOm.getOverlayInfosForTarget(target, mUser)) {
                 if (category.equals(info.category)
                         && !pkgs.contains(info.packageName)) {
                     pkgs.add(info.packageName);
@@ -70,7 +70,7 @@ public class ThemeHelper {
     public String getEnabledPkg(String category, String target) {
         if (mOm == null) return PKG_DEFAULT;
         try {
-            for (OverlayInfo info : mOm.getOverlayInfosForTarget(target, mUserId)) {
+            for (OverlayInfo info : mOm.getOverlayInfosForTarget(target, mUser)) {
                 if (category.equals(info.category) && info.isEnabled()) {
                     return info.packageName;
                 }
@@ -90,11 +90,11 @@ public class ThemeHelper {
             if (PKG_DEFAULT.equals(pkg)) {
                 for (String p : getOverlayPackagesForCategory(category, target)) {
                     if (!PKG_DEFAULT.equals(p)) {
-                        mOm.setEnabled(p, false, mUserId);
+                        mOm.setEnabled(p, false, mUser);
                     }
                 }
             } else {
-                mOm.setEnabledExclusiveInCategory(pkg, mUserId);
+                mOm.setEnabledExclusiveInCategory(pkg, mUser);
             }
         } catch (Exception e) {
         }
