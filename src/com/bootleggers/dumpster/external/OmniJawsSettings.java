@@ -162,9 +162,4 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
     }
 
 
-                @Override
-
-                @Override
 }
-
-
