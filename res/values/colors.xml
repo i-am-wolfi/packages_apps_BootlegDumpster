@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="homepage_sound_background">@color/homepage_pink_bg</color>
+    <color name="homepage_about_background">@color/homepage_grey_bg</color>
+    <color name="homepage_pink_bg">@color/m3_ref_palette_pink90</color>
+    <color name="homepage_grey_bg">@color/m3_ref_palette_grey90</color>
+</resources>
