@@ -92,7 +92,7 @@ public class MainDump extends PreferenceFragmentCompat {
                     !mRes.getBoolean(R.bool.has_quicksettings_options) &&
                     !mRes.getBoolean(R.bool.has_notifications_options) &&
                     !mRes.getBoolean(R.bool.has_lockscreen_options)) {
-                { android.preference.Preference p = findPreference("cat_interface"); if (p != null) getPreferenceScreen().removePreference(p); }
+                { androidx.preference.Preference p = findPreference("cat_interface"); if (p != null) getPreferenceScreen().removePreference(p); }
             } else {
                 if (!mRes.getBoolean(R.bool.has_statusbar_options)) catInterface.removePreference(statusBarPref);
                 if (!mRes.getBoolean(R.bool.has_quicksettings_options)) catInterface.removePreference(quickSettingsPref);
@@ -104,7 +104,7 @@ public class MainDump extends PreferenceFragmentCompat {
             if (!mRes.getBoolean(R.bool.has_recents_options) &&
                     !mRes.getBoolean(R.bool.has_animations_options) &&
                     !mRes.getBoolean(R.bool.has_gestures_options)) {
-                { android.preference.Preference p = findPreference("cat_tweaks"); if (p != null) getPreferenceScreen().removePreference(p); }
+                { androidx.preference.Preference p = findPreference("cat_tweaks"); if (p != null) getPreferenceScreen().removePreference(p); }
             } else {
                 if (!mRes.getBoolean(R.bool.has_recents_options)) catTweaks.removePreference(recentsPref);
                 if (!mRes.getBoolean(R.bool.has_animations_options)) catTweaks.removePreference(animationsPref);
@@ -116,7 +116,7 @@ public class MainDump extends PreferenceFragmentCompat {
                     !mRes.getBoolean(R.bool.has_navbar_options) &&
                     !mRes.getBoolean(R.bool.has_hwkeys_options) &&
                     !mRes.getBoolean(R.bool.has_fingerprint_options)) {
-                { android.preference.Preference p = findPreference("cat_buttons"); if (p != null) getPreferenceScreen().removePreference(p); }
+                { androidx.preference.Preference p = findPreference("cat_buttons"); if (p != null) getPreferenceScreen().removePreference(p); }
             } else {
                 if (!mRes.getBoolean(R.bool.has_powermenu_options)) catButtons.removePreference(powerMenuPref);
                 if (!mRes.getBoolean(R.bool.has_navbar_options)) catButtons.removePreference(navbarPref);

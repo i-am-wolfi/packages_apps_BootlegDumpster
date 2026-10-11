@@ -53,8 +53,7 @@ public class SystemSettings extends PreferenceFragmentCompat
 
     private void updateSmartPixelsPreference() {
         PreferenceScreen prefSet = getPreferenceScreen();
-        boolean enableSmartPixels = getContext().getResources().
-                getBoolean(true);
+        boolean enableSmartPixels = true;
         Preference smartPixels = findPreference(SMART_PIXELS);
 
         if (!enableSmartPixels){

@@ -59,12 +59,11 @@ public class AboutBootleggers extends PreferenceFragmentCompat implements
     private FooterPreference mFooterPreference;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources res = getResources();
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_about);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_about, rootKey);
 
         /** All main stuff we'll declare to check on build.prop **/
 
