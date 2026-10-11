@@ -1,0 +1,15 @@
+android_app {
+    name: "BootlegDumpster",
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    static_libs: [
+        "VendorSupport-preference",
+        "androidx.preference_preference",
+        "androidx.appcompat_appcompat",
+        "androidx.recyclerview_recyclerview",
+        "SettingsLibFooterPreference",
+    ],
+}
