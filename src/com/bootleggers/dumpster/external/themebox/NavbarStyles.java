@@ -1,7 +1,20 @@
 package com.bootleggers.dumpster.external.themebox;
 
-public class NavbarStyles extends androidx.preference.PreferenceFragmentCompat {
+import com.bootleggers.dumpster.R;
+
+public class NavbarStyles extends BaseThemePicker {
     @Override
-    public void onCreatePreferences(android.os.Bundle b, String s) {
+    protected String category() {
+        return "android.theme.customization.navbar";
+    }
+
+    @Override
+    protected String targetPackage() {
+        return "com.android.systemui";
+    }
+
+    @Override
+    protected int titleRes() {
+        return R.string.theme_customization_navbar_title;
     }
 }

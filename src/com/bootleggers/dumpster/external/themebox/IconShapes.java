@@ -1,7 +1,20 @@
 package com.bootleggers.dumpster.external.themebox;
 
-public class IconShapes extends androidx.preference.PreferenceFragmentCompat {
+import com.bootleggers.dumpster.R;
+
+public class IconShapes extends BaseThemePicker {
     @Override
-    public void onCreatePreferences(android.os.Bundle b, String s) {
+    protected String category() {
+        return "android.theme.customization.adaptive_icon_shape";
+    }
+
+    @Override
+    protected String targetPackage() {
+        return "android";
+    }
+
+    @Override
+    protected int titleRes() {
+        return R.string.theme_customization_icon_shape_title;
     }
 }

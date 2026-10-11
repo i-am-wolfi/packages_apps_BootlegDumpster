@@ -1,7 +1,20 @@
 package com.bootleggers.dumpster.external.themebox;
 
-public class LockClockFonts extends androidx.preference.PreferenceFragmentCompat {
+import com.bootleggers.dumpster.R;
+
+public class LockClockFonts extends BaseThemePicker {
     @Override
-    public void onCreatePreferences(android.os.Bundle b, String s) {
+    protected String category() {
+        return "android.theme.customization.lockscreen_clock_font";
+    }
+
+    @Override
+    protected String targetPackage() {
+        return "android";
+    }
+
+    @Override
+    protected int titleRes() {
+        return R.string.theme_customization_lock_clock_title;
     }
 }
