@@ -10,7 +10,7 @@ public class UdfpsUtils {
         if (fm == null) return false;
         try {
             for (FingerprintSensorPropertiesInternal prop : fm.getSensorPropertiesInternal()) {
-                if (prop.isUdfpsOptical() || prop.isUdfpsUltrasonic()) {
+                if (prop.isAnyUdfpsType()) {
                     return true;
                 }
             }
