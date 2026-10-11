@@ -39,10 +39,9 @@ import com.bootleggers.dumpster.extra.Utils;
 public class MainDump extends PreferenceFragmentCompat {
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_main);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_main, rootKey);
         Resources mRes = getResources();
 
         // Possible packages to start the custom activity
@@ -93,7 +92,7 @@ public class MainDump extends PreferenceFragmentCompat {
                     !mRes.getBoolean(R.bool.has_quicksettings_options) &&
                     !mRes.getBoolean(R.bool.has_notifications_options) &&
                     !mRes.getBoolean(R.bool.has_lockscreen_options)) {
-                removePreference("cat_interface");
+                { android.preference.Preference p = findPreference("cat_interface"); if (p != null) getPreferenceScreen().removePreference(p); }
             } else {
                 if (!mRes.getBoolean(R.bool.has_statusbar_options)) catInterface.removePreference(statusBarPref);
                 if (!mRes.getBoolean(R.bool.has_quicksettings_options)) catInterface.removePreference(quickSettingsPref);
@@ -105,7 +104,7 @@ public class MainDump extends PreferenceFragmentCompat {
             if (!mRes.getBoolean(R.bool.has_recents_options) &&
                     !mRes.getBoolean(R.bool.has_animations_options) &&
                     !mRes.getBoolean(R.bool.has_gestures_options)) {
-                removePreference("cat_tweaks");
+                { android.preference.Preference p = findPreference("cat_tweaks"); if (p != null) getPreferenceScreen().removePreference(p); }
             } else {
                 if (!mRes.getBoolean(R.bool.has_recents_options)) catTweaks.removePreference(recentsPref);
                 if (!mRes.getBoolean(R.bool.has_animations_options)) catTweaks.removePreference(animationsPref);
@@ -117,7 +116,7 @@ public class MainDump extends PreferenceFragmentCompat {
                     !mRes.getBoolean(R.bool.has_navbar_options) &&
                     !mRes.getBoolean(R.bool.has_hwkeys_options) &&
                     !mRes.getBoolean(R.bool.has_fingerprint_options)) {
-                removePreference("cat_buttons");
+                { android.preference.Preference p = findPreference("cat_buttons"); if (p != null) getPreferenceScreen().removePreference(p); }
             } else {
                 if (!mRes.getBoolean(R.bool.has_powermenu_options)) catButtons.removePreference(powerMenuPref);
                 if (!mRes.getBoolean(R.bool.has_navbar_options)) catButtons.removePreference(navbarPref);
@@ -159,10 +158,6 @@ public class MainDump extends PreferenceFragmentCompat {
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
     public static void lockCurrentOrientation(Activity activity) {
         int currentRotation = activity.getWindowManager().getDefaultDisplay().getRotation();

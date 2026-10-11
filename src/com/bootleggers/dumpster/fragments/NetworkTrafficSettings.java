@@ -59,21 +59,20 @@ public class NetworkTrafficSettings extends PreferenceFragmentCompat implements
     private SystemSettingMainSwitchPreference mNetMonitor;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_network_traffic);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_network_traffic, rootKey);
 
         final ContentResolver resolver = getActivity().getContentResolver();
 
         boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_STATE, 1, UserHandle.USER_CURRENT) == 1;
+                "network_traffic_state", 1, UserHandle.USER_CURRENT) == 1;
         mNetMonitor = (SystemSettingMainSwitchPreference) findPreference("network_traffic_state");
         mNetMonitor.setChecked(isNetMonitorEnabled);
         mNetMonitor.setOnPreferenceChangeListener(this);
 
         boolean isThresholdEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 0, UserHandle.USER_CURRENT) == 1;
+                "network_traffic_autohide_threshold", 0, UserHandle.USER_CURRENT) == 1;
         mThreshold = (SystemSettingSwitchPreference) findPreference("network_traffic_autohide_threshold");
         mThreshold.setChecked(isThresholdEnabled);
         mThreshold.setOnPreferenceChangeListener(this);
@@ -84,23 +83,19 @@ public class NetworkTrafficSettings extends PreferenceFragmentCompat implements
         if (preference == mNetMonitor) {
             boolean value = (Boolean) objValue;
             Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
+                    "network_traffic_state", value ? 1 : 0,
                     UserHandle.USER_CURRENT);
             mNetMonitor.setChecked(value);
             mThreshold.setChecked(value);
             return true;
         } else if (preference == mThreshold) {
             boolean value = (Boolean) objValue;
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, value ? 1 : 0,
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    "network_traffic_autohide_threshold", value ? 1 : 0,
                     UserHandle.USER_CURRENT);
             return true;
         }
         return false;
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 }

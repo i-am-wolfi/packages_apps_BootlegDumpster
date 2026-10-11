@@ -50,9 +50,8 @@ public class UdfpsSettings extends PreferenceFragmentCompat {
     private Preference mUdfpsAnimPreview;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.udfps_settings);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.udfps_settings, rootKey);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
@@ -68,15 +67,11 @@ public class UdfpsSettings extends PreferenceFragmentCompat {
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
         Settings.System.putIntForUser(resolver,
-                Settings.System.UDFPS_ANIM, 0, UserHandle.USER_CURRENT);
+                "udfps_anim", 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.UDFPS_ANIM_STYLE, 0, UserHandle.USER_CURRENT);
+                "udfps_anim_style", 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.UDFPS_ICON, 0, UserHandle.USER_CURRENT);
+                "udfps_icon", 0, UserHandle.USER_CURRENT);
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 }

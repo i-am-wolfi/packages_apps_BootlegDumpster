@@ -25,10 +25,9 @@ public class RecentsSettings extends PreferenceFragmentCompat implements
         OnPreferenceChangeListener {
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_recents);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_recents, rootKey);
 
         ContentResolver resolver = getActivity().getContentResolver();
 
@@ -43,8 +42,4 @@ public class RecentsSettings extends PreferenceFragmentCompat implements
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 }

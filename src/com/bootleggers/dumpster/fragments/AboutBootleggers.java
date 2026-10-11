@@ -148,9 +148,5 @@ public class AboutBootleggers extends PreferenceFragmentCompat implements
         return true;
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
 }

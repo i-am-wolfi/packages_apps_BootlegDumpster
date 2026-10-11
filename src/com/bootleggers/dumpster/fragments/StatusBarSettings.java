@@ -51,10 +51,9 @@ public class StatusBarSettings extends PreferenceFragmentCompat implements
     private SwitchPreference mOldMobileType;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_status_bar);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_status_bar, rootKey);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -77,17 +76,13 @@ public class StatusBarSettings extends PreferenceFragmentCompat implements
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
         Settings.System.putIntForUser(resolver,
-                Settings.System.STATUSBAR_COLORED_ICONS, 0, UserHandle.USER_CURRENT);
+                "statusbar_colored_icons", 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.STATUSBAR_NOTIF_COUNT, 0, UserHandle.USER_CURRENT);
+                "statusbar_notif_count", 0, UserHandle.USER_CURRENT);
     }
 
 }

@@ -49,16 +49,15 @@ public class PowerMenuSettings extends PreferenceFragmentCompat
     private ListPreference mPowerMenuAnimations;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_power);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_power, rootKey);
 
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
         mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
+                getContext().getContentResolver(), "power_menu_animations", 0)));
         mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
         mPowerMenuAnimations.setOnPreferenceChangeListener(this);
     }
@@ -67,7 +66,7 @@ public class PowerMenuSettings extends PreferenceFragmentCompat
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mPowerMenuAnimations) {
-            Settings.System.putInt(getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS,
+            Settings.System.putInt(getContext().getContentResolver(), "power_menu_animations",
                     Integer.valueOf((String) newValue));
             mPowerMenuAnimations.setValue(String.valueOf(newValue));
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
@@ -79,9 +78,5 @@ public class PowerMenuSettings extends PreferenceFragmentCompat
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
 }

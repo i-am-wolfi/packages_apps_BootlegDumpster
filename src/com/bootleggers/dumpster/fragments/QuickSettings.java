@@ -37,10 +37,9 @@ public class QuickSettings extends PreferenceFragmentCompat implements
     private SwitchPreference mShowAutoBrightness;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_quick_settings);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_quick_settings, rootKey);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -50,7 +49,7 @@ public class QuickSettings extends PreferenceFragmentCompat implements
         mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
         mShowBrightnessSlider.setOnPreferenceChangeListener(this);
         boolean showSlider = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
+                "qs_show_brightness_slider", 1, UserHandle.USER_CURRENT) > 0;
 
         mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
         mBrightnessSliderPosition.setEnabled(showSlider);
@@ -81,9 +80,5 @@ public class QuickSettings extends PreferenceFragmentCompat implements
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
 }

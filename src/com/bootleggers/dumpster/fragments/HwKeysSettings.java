@@ -43,9 +43,8 @@ public class HwKeysSettings extends PreferenceFragmentCompat
         implements OnPreferenceChangeListener {
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_hwkeys);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_hwkeys, rootKey);
 
     }
 
@@ -58,8 +57,4 @@ public class HwKeysSettings extends PreferenceFragmentCompat
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 }

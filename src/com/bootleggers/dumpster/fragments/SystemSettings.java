@@ -46,16 +46,15 @@ public class SystemSettings extends PreferenceFragmentCompat
     private static final String SMART_PIXELS = "smart_pixels";
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_system);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_system, rootKey);
         updateSmartPixelsPreference();
     }
 
     private void updateSmartPixelsPreference() {
         PreferenceScreen prefSet = getPreferenceScreen();
         boolean enableSmartPixels = getContext().getResources().
-                getBoolean(com.android.internal.R.bool.config_supportSmartPixels);
+                getBoolean(true);
         Preference smartPixels = findPreference(SMART_PIXELS);
 
         if (!enableSmartPixels){
@@ -72,8 +71,4 @@ public class SystemSettings extends PreferenceFragmentCompat
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 }

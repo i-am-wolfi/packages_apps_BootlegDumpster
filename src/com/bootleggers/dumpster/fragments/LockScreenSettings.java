@@ -63,9 +63,8 @@ public class LockScreenSettings extends PreferenceFragmentCompat implements
         private PreferenceCategory mUdfpsCategory;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_lockscreen);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_lockscreen, rootKey);
 
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
@@ -111,12 +110,12 @@ public class LockScreenSettings extends PreferenceFragmentCompat implements
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
          Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT);
+                "doze_on_charge", 0, UserHandle.USER_CURRENT);
     }
     
     private String getSettingsShortcutValue() {
         String value = Settings.System.getString(getActivity().getContentResolver(),
-                Settings.System.KEYGUARD_QUICK_TOGGLES_NEW);
+                "keyguard_quick_toggles_new");
         if (value == null || value.isEmpty()) {
             StringBuilder sb = new StringBuilder(DEFAULT_START_SHORTCUT[0]);
             for (int i = 1; i < DEFAULT_START_SHORTCUT.length; i++) {
@@ -163,7 +162,7 @@ public class LockScreenSettings extends PreferenceFragmentCompat implements
             split[splitIndex] = sb.toString();
         }
         Settings.System.putString(getActivity().getContentResolver(),
-                Settings.System.KEYGUARD_QUICK_TOGGLES_NEW, split[0] + ";" + split[1]);
+                "keyguard_quick_toggles_new", split[0] + ";" + split[1]);
 
         if (start) {
             mStartShortcut.setValue(value);
@@ -174,9 +173,5 @@ public class LockScreenSettings extends PreferenceFragmentCompat implements
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
 }

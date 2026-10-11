@@ -26,10 +26,9 @@ public class AnimationsSettings extends PreferenceFragmentCompat
         implements OnPreferenceChangeListener {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_animations);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_animations, rootKey);
     }
 
     @Override
@@ -41,9 +40,5 @@ public class AnimationsSettings extends PreferenceFragmentCompat
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
 }

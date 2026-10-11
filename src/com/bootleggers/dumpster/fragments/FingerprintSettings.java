@@ -43,9 +43,8 @@ public class FingerprintSettings extends PreferenceFragmentCompat
         implements OnPreferenceChangeListener {
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_fingerprint);
+    public void onCreatePreferences(Bundle icicle, String rootKey) {
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_fingerprint, rootKey);
 
     }
 
@@ -58,8 +57,4 @@ public class FingerprintSettings extends PreferenceFragmentCompat
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 }

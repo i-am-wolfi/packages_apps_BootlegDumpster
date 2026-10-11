@@ -38,13 +38,10 @@ import com.bootleggers.dumpster.extra.Utils;
 
 import com.bootleggers.dumpster.R;
 import androidx.preference.PreferenceFragmentCompat;
-import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
-
-@SearchIndexable
 public class OmniJawsSettings extends PreferenceFragmentCompat implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "OmniJawsSettings";
@@ -58,23 +55,18 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
     private PreferenceCategory mWeatherCategory;
     private ListPreference mWeatherIconPack;
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.BOOTLEG;
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.bootleg_external_omnijaws_settings);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.bootleg_external_omnijaws_settings, rootKey);
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mWeatherCategory = (PreferenceCategory) prefScreen.findPreference(CATEGORY_WEATHER);
         if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
             prefScreen.removePreference(mWeatherCategory);
         } else {
-            String settingHeaderPackage = Settings.System.getString(getContentResolver(),
-                    Settings.System.OMNIJAWS_WEATHER_ICON_PACK);
+            String settingHeaderPackage = Settings.System.getString(getContext().getContentResolver(),
+                    "omnijaws_weather_icon_pack");
             if (settingHeaderPackage == null) {
                 settingHeaderPackage = DEFAULT_WEATHER_ICON_PACKAGE + "." + DEFAULT_WEATHER_ICON_PREFIX;
             }
@@ -90,8 +82,8 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
             if (valueIndex == -1) {
                 // no longer found
                 settingHeaderPackage = DEFAULT_WEATHER_ICON_PACKAGE + "." + DEFAULT_WEATHER_ICON_PREFIX;
-                Settings.System.putString(getContentResolver(),
-                        Settings.System.OMNIJAWS_WEATHER_ICON_PACK, settingHeaderPackage);
+                Settings.System.putString(getContext().getContentResolver(),
+                        "omnijaws_weather_icon_pack", settingHeaderPackage);
                 valueIndex = mWeatherIconPack.findIndexOfValue(settingHeaderPackage);
             }
             mWeatherIconPack.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
@@ -103,8 +95,8 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mWeatherIconPack) {
             String value = (String) objValue;
-            Settings.System.putString(getContentResolver(),
-                    Settings.System.OMNIJAWS_WEATHER_ICON_PACK, value);
+            Settings.System.putString(getContext().getContentResolver(),
+                    "omnijaws_weather_icon_pack", value);
             int valueIndex = mWeatherIconPack.findIndexOfValue(value);
             mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
         }
@@ -117,7 +109,7 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
 
     private void getAvailableWeatherIconPacks(List<String> entries, List<String> values) {
         Intent i = new Intent();
-        PackageManager packageManager = getPackageManager();
+        PackageManager packageManager = getContext().getPackageManager();
         i.setAction("org.omnirom.WeatherIconPack");
         for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
             String packageName = r.activityInfo.packageName;
@@ -126,7 +118,7 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
             } else {
                 values.add(r.activityInfo.name);
             }
-            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            String label = r.activityInfo.loadLabel(getContext().getPackageManager()).toString();
             if (label == null) {
                 label = r.activityInfo.packageName;
             }
@@ -141,7 +133,7 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
         for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
             String packageName = r.activityInfo.packageName;
             values.add(packageName + ".weather");
-            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            String label = r.activityInfo.loadLabel(getContext().getPackageManager()).toString();
             if (label == null) {
                 label = r.activityInfo.packageName;
             }
@@ -157,7 +149,7 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
             "enabled"
         };
 
-        final Cursor c = getContentResolver().query(SETTINGS_URI, SETTINGS_PROJECTION,
+        final Cursor c = getContext().getContentResolver().query(SETTINGS_URI, SETTINGS_PROJECTION,
                 null, null, null);
         if (c != null) {
             int count = c.getCount();
@@ -171,7 +163,6 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
     }
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
 
                 @Override
                 public List<SearchIndexableResource> getXmlResourcesToIndex(

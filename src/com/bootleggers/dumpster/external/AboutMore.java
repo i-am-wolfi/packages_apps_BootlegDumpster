@@ -29,10 +29,9 @@ public class AboutMore extends PreferenceFragmentCompat {
     private String bootlegCrowdinString;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_external_frag_aboutmore);
+        setPreferencesFromResource(R.xml.bootleg_external_frag_aboutmore, rootKey);
         Resources res = getResources();
         prefCrowd = (Preference) findPreference("bootleg_morecd");
 
@@ -41,9 +40,5 @@ public class AboutMore extends PreferenceFragmentCompat {
         prefCrowd.setSummary(String.valueOf(bootlegCrowdinString));
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
 }

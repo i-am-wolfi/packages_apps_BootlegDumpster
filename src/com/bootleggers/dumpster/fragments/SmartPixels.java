@@ -38,14 +38,10 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bootleggers.dumpster.R;
 import androidx.preference.PreferenceFragmentCompat;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settingslib.search.Indexable;
-import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.List;
-
-@SearchIndexable
-public class SmartPixels extends PreferenceFragmentCompat implements Indexable {
+public class SmartPixels extends PreferenceFragmentCompat {
     private static final String TAG = "SmartPixels";
     private static final String SMART_PIXELS_ENABLE = "smart_pixels_enable";
     private static final String SMART_PIXELS_ON_POWER_SAVE = "smart_pixels_on_power_save";
@@ -55,10 +51,9 @@ public class SmartPixels extends PreferenceFragmentCompat implements Indexable {
     private SwitchPreference mSmartPixelsPowerSave;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
-        addPreferencesFromResource(R.xml.smart_pixels);
+        setPreferencesFromResource(R.xml.smart_pixels, rootKey);
         mSmartPixelsEnabled = (SwitchPreference) findPreference(SMART_PIXELS_ENABLE);
         mSmartPixelsPowerSave = (SwitchPreference) findPreference(SMART_PIXELS_ON_POWER_SAVE);
 
@@ -69,21 +64,17 @@ public class SmartPixels extends PreferenceFragmentCompat implements Indexable {
         final ContentResolver resolver = getActivity().getContentResolver();
         if (mSmartPixelsEnabled != null) {
             boolean spEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.SMART_PIXELS_ENABLE, 0, UserHandle.USER_CURRENT) == 1;
+                "smart_pixels_enable", 0, UserHandle.USER_CURRENT) == 1;
             mSmartPixelsEnabled.setChecked(spEnabled);
         }
 
         if (mSmartPixelsPowerSave != null) {
             boolean spEnabledOnPS = Settings.System.getIntForUser(resolver,
-                Settings.System.SMART_PIXELS_ON_POWER_SAVE, 0, UserHandle.USER_CURRENT) == 1;
+                "smart_pixels_on_power_save", 0, UserHandle.USER_CURRENT) == 1;
             mSmartPixelsPowerSave.setChecked(spEnabledOnPS);
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.BOOTLEG;
-    }
 
     @Override
     public void onResume() {
@@ -125,7 +116,6 @@ public class SmartPixels extends PreferenceFragmentCompat implements Indexable {
     }
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
                 @Override
                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
                                                                             boolean enabled) {
@@ -134,7 +124,7 @@ public class SmartPixels extends PreferenceFragmentCompat implements Indexable {
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
                     if(context.getResources().
-                            getBoolean(com.android.internal.R.bool.config_supportSmartPixels)) {
+                            getBoolean(true)) {
                         sir.xmlResId = R.xml.smart_pixels;
                     }
                     result.add(sir);

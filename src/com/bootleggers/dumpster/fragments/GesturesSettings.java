@@ -27,10 +27,9 @@ public class GesturesSettings extends PreferenceFragmentCompat
         implements OnPreferenceChangeListener {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
-        addPreferencesFromResource(R.xml.bootleg_dumpster_frag_gestures);
+        setPreferencesFromResource(R.xml.bootleg_dumpster_frag_gestures, rootKey);
     }
 
     @Override
@@ -42,9 +41,5 @@ public class GesturesSettings extends PreferenceFragmentCompat
         }
     }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.BOOTLEG;
-    }
 
 }
