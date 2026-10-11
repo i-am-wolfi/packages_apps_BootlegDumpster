@@ -29,7 +29,6 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
-import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -162,21 +161,10 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
         return true;
     }
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
 
                 @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(
-                        Context context, boolean enabled) {
-                    final SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.bootleg_external_omnijaws_settings;
-                    return Arrays.asList(sir);
-                }
 
                 @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    ArrayList<String> result = new ArrayList<String>();
-                    return result;
-                }
     };
 }
 

@@ -28,7 +28,6 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -282,23 +281,9 @@ public class StatusbarClockDateSettings extends PreferenceFragmentCompat
      * For Search.
      */
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
 
                 @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.bootleg_external_frag_clock_settings;
-                    result.add(sir);
-                    return result;
-                }
 
            @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
     };
 }

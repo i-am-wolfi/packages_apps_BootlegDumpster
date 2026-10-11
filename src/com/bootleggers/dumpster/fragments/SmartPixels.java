@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.provider.SearchIndexableResource;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -115,26 +114,8 @@ public class SmartPixels extends PreferenceFragmentCompat {
         }
     }
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
                 @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                                                                            boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    if(context.getResources().
-                            getBoolean(true)) {
-                        sir.xmlResId = R.xml.smart_pixels;
-                    }
-                    result.add(sir);
-                    return result;
-                }
 
                 @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
             };
 }
