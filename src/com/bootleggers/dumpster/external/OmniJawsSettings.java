@@ -146,6 +146,7 @@ public class OmniJawsSettings extends PreferenceFragmentCompat implements
 
         final String[] SETTINGS_PROJECTION = new String[] {
             "enabled"
+        };
 
         final Cursor c = getContext().getContentResolver().query(SETTINGS_URI, SETTINGS_PROJECTION,
                 null, null, null);

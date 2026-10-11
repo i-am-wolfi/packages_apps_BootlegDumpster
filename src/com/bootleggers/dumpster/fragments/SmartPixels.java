@@ -114,7 +114,4 @@ public class SmartPixels extends PreferenceFragmentCompat {
         }
     }
 
-                @Override
-
-                @Override
 }

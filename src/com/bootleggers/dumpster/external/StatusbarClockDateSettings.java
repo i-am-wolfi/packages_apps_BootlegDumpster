@@ -282,7 +282,4 @@ public class StatusbarClockDateSettings extends PreferenceFragmentCompat
      */
 
 
-                @Override
-
-           @Override
 }
