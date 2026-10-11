@@ -16,6 +16,24 @@
 -->
 <resources>
 
+    <!-- App theme: AppCompat base (provides preferenceTheme for
+         PreferenceFragmentCompat) with Monet dynamic colors bridged in from
+         the framework. Previously this used Theme.DeviceDefault.Settings
+         (dynamic, but no preferenceTheme -> crash) and then plain
+         Theme.AppCompat (stable, but static teal accent -> "sem cor monet").
+         Mapping the AppCompat palette onto ?android:attr/* gives wallpaper
+         colors back on A16. -->
+    <style name="Theme.BootlegDumpster" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">?android:attr/colorAccent</item>
+        <item name="colorPrimaryDark">?android:attr/colorAccent</item>
+        <item name="colorAccent">?android:attr/colorAccent</item>
+        <item name="android:colorAccent">?android:attr/colorAccent</item>
+        <item name="colorControlActivated">?android:attr/colorAccent</item>
+        <item name="colorControlHighlight">?android:attr/colorControlHighlight</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
     <style name="OptionTitleTextAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">15sp</item>

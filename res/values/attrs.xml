@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Needed by com.bootleggers.dumpster.widget.TintDrawable (mirrors Settings) -->
+    <declare-styleable name="TintDrawable">
+        <attr name="android:tint" />
+        <attr name="android:drawable" />
+    </declare-styleable>
+</resources>

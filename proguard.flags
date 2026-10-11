@@ -1,0 +1,8 @@
+# Fragments are instantiated by class name from app:fragment attributes in
+# preference XML (and themebox pickers via intents), which R8 cannot see.
+# Without these keeps, shrinking strips them and every Dumpster sub-screen
+# crashes with ClassNotFoundException on open.
+-keep public class com.bootleggers.dumpster.fragments.** { *; }
+-keep public class com.bootleggers.dumpster.external.** { *; }
+-keep public class com.bootleggers.dumpster.widget.** { *; }
+-keep public class com.bootleggers.dumpster.extra.** { *; }

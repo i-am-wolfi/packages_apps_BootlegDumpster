@@ -129,10 +129,10 @@ public class MainDump extends PreferenceFragmentCompat {
             if (!mRes.getBoolean(R.bool.has_system_options)) catMisc.removePreference(systemPref);
             boolean hasDeviceExtras = false;
             for (int i = 0; i < deviceExtrasPackages.length; i++) {
-                if (hasDeviceExtras) return;
+                if (hasDeviceExtras) break;
 
                 String pkg = deviceExtrasPackages[i];
-                if (pkg == null || pkg == "") return;
+                if (pkg == null || pkg.isEmpty()) continue;
                 if (Utils.isPackageInstalled(getActivity(), pkg)) {
                     Intent devExtrasIntent = new Intent(deviceExtrasIntent[i]);
                     devExtrasIntent.setClassName(pkg, deviceExtrasActivities[i]);
