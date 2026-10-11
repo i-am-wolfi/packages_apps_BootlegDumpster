@@ -2,15 +2,20 @@ package com.android.internal.util.bootleg.udfps;
 
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
+import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 
 public class UdfpsUtils {
     public static boolean hasUdfpsSupport(Context context) {
         FingerprintManager fm = context.getSystemService(FingerprintManager.class);
         if (fm == null) return false;
-        for (android.hardware.biometrics.SensorProperties prop : fm.getSensorPropertiesInternal()) {
-            if (prop.getSensorType() == android.hardware.biometrics.BiometricAuthenticator.TYPE_UNDER_DISPLAY) {
-                return true;
+        try {
+            for (FingerprintSensorPropertiesInternal prop : fm.getSensorPropertiesInternal()) {
+                if (prop.isUdfpsOptical() || prop.isUdfpsUltrasonic()) {
+                    return true;
+                }
             }
+        } catch (Exception e) {
+            return false;
         }
         return false;
     }
